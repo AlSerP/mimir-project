@@ -1,0 +1,26 @@
+services:
+  db:
+    container_name: db
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -q -U postgres -d postgres"]
+      interval: 5s
+      timeout: 30s
+      retries: 10
+      start_period: 30s
+  web:
+    container_name: tests-web
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rake db:prepare && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/rails
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PASSWORD: password
+    depends_on:
+      db:
+        condition: service_healthy
