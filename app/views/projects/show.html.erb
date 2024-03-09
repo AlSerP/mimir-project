@@ -1,0 +1,9 @@
+<h1><%= @project.name %></h1>
+<p><%= @project.description %></p>
+
+<%= link_to t(:edit), edit_project_path %>
+<%= link_to t(:delete), project_path(@project),
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: t(:confirmation)
+            } %>
