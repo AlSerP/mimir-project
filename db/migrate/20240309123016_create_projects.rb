@@ -1,8 +1,8 @@
 class CreateProjects < ActiveRecord::Migration[7.1]
   def change
-    create_table :projects do |t|
-      t.string :name
-      t.text :description
+    create_table :projects, id: :uuid, default: "gen_random_uuid()" do |t|
+      t.string :title, null: false
+      t.text :description, null: false, default: ''
 
       t.timestamps
     end
