@@ -1,0 +1,10 @@
+<h1><%= link_to @project.title, @project %> | <%= @task.title %></h1>
+<p><%= @task.description %></p>
+<p><%= @task.deadline %></p>
+
+<%= link_to t(:edit), edit_project_task_path %>
+<%= link_to t(:delete), project_task_path,
+            data: {
+              turbo_method: :delete,
+              turbo_confirm: t(:confirmation)
+            } %>
