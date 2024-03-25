@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_project
+  before_action :authenticate_user!
 
   def index
     @tasks = @project.tasks
@@ -14,11 +15,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
+    @task = Task.create(task_params.merge(created_by_id: current_user.id, assigned_to_id: current_user.id))
     
     if @task.save
       redirect_to project_task_path(id: @task.id)
-      # redirect_to project_task_path(id: @task.id) 
     else
       render :new, status: :unprocessable_entity
     end

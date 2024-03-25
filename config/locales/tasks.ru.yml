@@ -3,3 +3,5 @@ ru:
   create_task: "Создать задачу"
   new_task: "Новая задача"
   edit_task: "Изменить задачу"
+  created_by: "Создана"
+  assigned_to: "Назначена"
