@@ -1,6 +1,7 @@
 <h1><%= link_to @project.title, @project %> | <%= @task.title %></h1>
 <p><%= t(:created_by) %>: <%= @task.created_by.try(:email) || "---" %></p>
 <p><%= t(:assigned_to) %>: <%= @task.assigned_to.try(:email) || "---" %></p>
+<p><%= t(:status) %>: <%= t(@task.status) %></p>
 <p><%= @task.description %></p>
 <p><%= @task.deadline %></p>
 

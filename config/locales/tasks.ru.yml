@@ -5,3 +5,7 @@ ru:
   edit_task: "Изменить задачу"
   created_by: "Создана"
   assigned_to: "Назначена"
+  status: "Статус"
+  to_do: "Назначена"
+  in_progress: "В процессе"
+  completed: "Выполнена"
