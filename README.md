@@ -1,24 +1,21 @@
-# README
+# Mimir project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A kanban boards control system
 
-Things you may want to cover:
+## Run with Docker
 
-* Ruby version
+Run and build:
+```
+  docker compose up --build
+```
 
-* System dependencies
+To clear the database:
+```
+  docker compose exec mimir-web bundle exec rails db:drop db:prepare
+```
 
-* Configuration
+### Locations
+Web location: 127.0.0.1:3000
 
-* Database creation
+PostrgeSQL location: 127.0.0.1:5432
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
